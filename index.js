@@ -19,11 +19,11 @@ app.get("/", (req, res) => {
 app.post("/result", (req, res) => {
    const found = (data.some(data => data.id === parseInt(req.body.id)));
    if(found){
-      res.json(data.filter(data=>{
+      data.filter(data=>{
          if(data.id === parseInt(req.body.id)){
             res.send(`Name: `+data.name)
          }      
-      }));
+      });
    }else{
       res.send("Data not found");
    }
